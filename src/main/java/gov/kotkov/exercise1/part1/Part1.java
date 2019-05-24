@@ -9,8 +9,12 @@ public class Part1 {
 			return array;
 		}
 		int[] result = new int[array.length];
-		System.arraycopy(array, offset, result, 0, array.length - offset);
-		System.arraycopy(array, 0, result, offset, offset);
+		for(int i = 0; i + offset < array.length; i++) {
+			result[i] = array[i + offset];
+		}
+		for(int j = 0; j < offset; j++) {
+			result[array.length - offset] = array[j];
+		}
 		return result;
 	}
 	
